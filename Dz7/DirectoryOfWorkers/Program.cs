@@ -40,8 +40,8 @@ namespace DirectoryOfWorkers
             for (int i = 0; i < (ArrayWords.Length); i += 7) // Перевод из массива string в Структуру
                 //ListOfWorkers
             {
-                Console.WriteLine($">>{ArrayWords[i]}>>{j}");
-                Console.WriteLine($">>{i}>>{j}");
+                //Console.WriteLine($">>{ArrayWords[i]}>>{j}");
+                //Console.WriteLine($">>{i}>>{j}");
                 list[j].Id = Convert.ToInt32(ArrayWords[i]);
                 list[j].TimeWrite = Convert.ToDateTime(ArrayWords[i + 1]);
                 list[j].NameWorker = ArrayWords[i + 2];

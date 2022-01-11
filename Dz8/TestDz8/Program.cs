@@ -10,7 +10,7 @@ namespace TestDz8
     {
         static void Main(string[] args)
         {
-//
+//Проверка
         }
     }
 }
