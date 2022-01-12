@@ -119,7 +119,7 @@ namespace DirectoryOfWorkers
             byte flag = 0;
             for (int i = 0; i < list.Length; i++)
             {
-                Console.WriteLine($">>{i}>>{list.Length}>>{list2.Length}");
+                //Console.WriteLine($">>{i}>>{list.Length}>>{list2.Length}");
                 if (list[i].Id != id)
                 {
                     if (list[i].Id < id) list2[i-flag] = list[i];
@@ -254,7 +254,7 @@ namespace DirectoryOfWorkers
             {
             using (FileStream SR = new FileStream("Base.txt", FileMode.OpenOrCreate)) { } // Исключение ошибки, если файл отсутствет
             ListOfWorkers[] workers = new ListOfWorkers[File.ReadAllLines("Base.txt").Length];
-            ListOfWorkers[] res = new ListOfWorkers[workers.Length - 1];
+            //ListOfWorkers[] res = new ListOfWorkers[workers.Length - 1];
             string Str = null ;
             workers = ReadFile();
 
@@ -270,21 +270,28 @@ namespace DirectoryOfWorkers
                     "E - для редактирования данных о сотрудниках");
                 switch (Console.ReadKey(true).Key.ToString())
                 {
-                    case "Q": 
+                    case "Q":
                         i = 1; break;
                     case "D":
                         #region Удаление записи
                         Console.Clear();
-                        Console.WriteLine("Введите ID Сотрудника для удаления или нажмите Enter " +
-                            "для выхода в основное меню");
+                        Console.Write("Введите ID Сотрудника для удаления или нажмите Enter " +
+                            "для выхода в основное меню: ");
+                        //Console.WriteLine(workers.Length);
                         Str = Console.ReadLine();
+
                         if (Str != "")
-                        {
-                            workers = Delete(workers, Convert.ToInt32(Str));
-                            //Print(res);
-                            FullWrite(workers);
-                            //workers = ReadFile();
-                        }
+                            if (workers.Length != 0 & Convert.ToInt32(Str) < workers.Length) // 
+
+
+                            {
+                                workers = Delete(workers, Convert.ToInt32(Str));
+                                //Print(res);
+                                FullWrite(workers);
+                                //workers = ReadFile();
+                            }
+                            else {Console.WriteLine("Нет записей или несуществующий ID"); Console.ReadKey(true); }
+
                         break;
                         #endregion
                     case "P":
